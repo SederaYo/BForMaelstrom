@@ -1,12 +1,110 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8" />
-    <title>BForMaelstrom</title>
-  </head>
-  <body>
-    <h1>Добро пожаловать на сайт выбора фарм предмета</h1>
-    <p>Скоро здесь появится магия.</p>
-  </body>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>BForMaelstrom — выбор фарм предмета</title>
+<style>
+  /* Базовые стили */
+  body {
+    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f9fafb;
+    color: #1e293b;
+    margin: 0;
+    padding: 0;
+  }
+  header {
+    background: #2c3e50;
+    color: #ecf0f1;
+    padding: 1rem 2rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+  }
+  main {
+    max-width: 960px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+  }
+  h1 {
+    margin-bottom: 1rem;
+    color: #34495e;
+  }
+  /* Карточки предметов */
+  .item-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 1rem;
+  }
+  .item-card {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 1px 4px rgb(0 0 0 / 0.1);
+    padding: 1rem;
+    text-align: center;
+    cursor: pointer;
+    transition: box-shadow 0.3s ease;
+  }
+  .item-card:hover {
+    box-shadow: 0 4px 15px rgb(0 0 0 / 0.2);
+  }
+  .item-card img {
+    width: 64px;
+    height: 64px;
+    margin-bottom: 0.5rem;
+  }
+  .item-card .item-name {
+    font-weight: 600;
+    color: #2c3e50;
+  }
+  /* Кнопка */
+  button {
+    background: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 0.6rem 1.2rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  button:hover {
+    background: #1d4ed8;
+  }
+</style>
+</head>
+<body>
+  <header>
+    BForMaelstrom — выбор фарм предмета
+  </header>
+  <main>
+    <h1>Выберите предмет для фарма</h1>
+    <div class="item-grid" id="items">
+      <!-- Здесь появятся карточки предметов -->
+    </div>
+  </main>
+
+  <script>
+    // Пример предметов для демонстрации
+    const items = [
+      { name: "Maelstrom", img: "https://static.dotabuff.com/images/items/maelstrom-lg.png" },
+      { name: "Battle Fury", img: "https://static.dotabuff.com/images/items/battlefury-lg.png" },
+      { name: "Manta Style", img: "https://static.dotabuff.com/images/items/manta-lg.png" },
+      { name: "Mask of Madness", img: "https://static.dotabuff.com/images/items/mom-lg.png" },
+      { name: "Sange and Yasha", img: "https://static.dotabuff.com/images/items/sange_yasha-lg.png" }
+    ];
+
+    const container = document.getElementById('items');
+
+    items.forEach(item => {
+      const card = document.createElement('div');
+      card.className = 'item-card';
+      card.innerHTML = `
+        <img src="${item.img}" alt="${item.name}" />
+        <div class="item-name">${item.name}</div>
+      `;
+      container.appendChild(card);
+    });
+  </script>
+</body>
 </html>
-<!-- Start with GPT help --> 
